@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="basic.js"></script>
+    <style>
+        * {
+            margin: 0;padding: 0
+        }
+        .fl {
+            float: left
+        }
+        .fr {
+            float: right;
+        }
+        .clear:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #chat {
+            width: 250px;
+            /*height: 300px;*/
+            border: 1px solid #000;
+            margin: 50px auto 0;
+        }
+
+        #chatPage {
+            height: 300px;
+            width: 250px;
+            overflow: auto;
+
+        }
+
+        #right-chat {
+            width: 100%;
+            float: right;
+            word-break: break-all;
+        }
+        #right-chat img {
+            width: 50px;
+            height: 50px;
+            float: right;
+        }
+        #right-chat p {
+            float: right;
+            width: 150px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        #right-chat span {
+            float: right;
+            border: solid 2px #dedede;
+            border-radius: 4px;
+        }
+
+        #left-chat {
+            width: 100%;
+            float: left;
+            word-break: break-all;
+        }
+        #left-chat img {
+            width: 50px;
+            height: 50px;
+            float: left;
+        }
+        #left-chat p {
+            float: left;
+            width: 150px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        #left-chat span {
+            float: left;
+            border: solid 2px #dedede;
+            border-radius: 4px;
+        }
+
+
+
+        #sendMessage {
+            border-top: solid 1px #dedede;
+
+        }
+        #sendMessage #img {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ded6e7;
+            border-radius: 4px;
+            margin: 10px 0px 10px 10px ;
+        }
+        #sendMessage #text {
+            float: left;
+            width: 100px;
+            height: 30px;
+            border: 1px solid #ded6e7;
+            border-radius: 4px;
+            margin: 20px 0px 10px 10px ;
+            /*word-break: normal;*/
+        }
+        #sendMessage #btn {
+            float: right;
+            width: 50px;
+            height: 30px;
+            border: 1px solid #ded6e7;
+            border-radius: 4px;
+            margin: 20px 10px 10px 10px ;
+        }
+
+    </style>
+</head>
+<body>
+<div id="chat">
+    <div id="chatPage">
+
+    </div>
+    <div id="sendMessage" class="clear" >
+        <img  id="img" class="fl" src="images/01.png">
+        <input  id="text"  class="fl" type="text" value="">
+        <input id="btn" class="fl" type="button" value="发送">
+    </div>
+</div>
+<script>
+    //点击头像更换src路径
+    var aArr=["images/01.png","images/02.png"];
+    var img=getId("img");
+    var num=0;
+    img.onclick=function () {
+      if (num==0){
+          img.src=aArr[1];
+          num=1;
+      }else {
+          img.src=aArr[0];
+          num=0;
+      }
+    }
+
+    //点击发送按钮
+    var btn=getId("btn");
+    var chatPage=getId("chatPage");
+    var text=getId("text");
+
+    btn.onclick=function () {
+        if (num==0) {
+            chatPage.innerHTML += '<div id="right-chat"><img src="images/01.png"><p><span>' + text.value + '</span></p></div>';
+        }else  {
+            chatPage.innerHTML += '<div id="left-chat"><img src="images/02.png"><p><span>' +text.value + '</span></p></div>';
+        }
+        text.value="";
+//        chatPage.scrollTop = chatPage.scrollHeight;
+    }
+
+
+
+
+</script>
+</body>
+</html>

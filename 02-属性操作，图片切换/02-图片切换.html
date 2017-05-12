@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="basic.js"></script>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 420px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        #box #pg {
+            padding: 10px 0;
+        }
+
+        #showImage {
+            position: relative;
+            border: 10px solid #dedede;
+            color: #fff;
+            text-align: center;
+        }
+        #showImage #img {
+            width: 400px;
+            height: 600px;
+        }
+        #showImage #pg1,#showImage #pg2 {
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #000000;
+            filter: alpha(opacity=70);
+            opacity: 0.7;
+        }
+        #showImage #pg1 {
+            position: absolute;
+            top:0;
+        }
+        #showImage #pg2 {
+            position: absolute;
+            bottom: 0;
+        }
+        #showImage #pg3,#showImage #pg4 {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 30px;
+            background-color: #000000;
+            filter: alpha(opacity=70);
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        #showImage #pg3 {
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+        #showImage #pg4 {
+            position: absolute;
+            top: 200px;
+            right: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="box">
+    <input id="btn1" type="button" value="顺序播放">
+    <input id="btn2" type="button" value="循环播放">
+    <p id="pg">图片只能到一张或最后一张切换</p>
+    <div id="showImage">
+        <img id="img" src="images/03.jpg">
+        <p id="pg1">1/4</p>
+        <p id="pg2">运动员</p>
+        <p id="pg3"><</p>
+        <p id="pg4">></p>
+    </div>
+</div>
+<script>
+//顺序播放
+    var num=3;
+    var aArr=["运动员","古装美女","游戏美女","性感美女"];
+    var btn1=getId("btn1");
+    var pg=getId("pg");
+    var img=getId("img");
+    var pg1=getId("pg1");
+    var pg2=getId("pg2");
+    var pg3=getId("pg3");
+    var pg4=getId("pg4");
+    btn1.onclick=function () {
+        pg.innerHTML = "图片只能到一张或最后一张切换";
+
+        pg3.onclick = function () {
+            if (num > 3) {
+                num--;
+                img.src = 'images/0' + num + '.jpg';
+                pg1.innerHTML = num - 2 + "/4";
+                pg2.innerHTML = aArr[num - 3];
+
+            } else {
+                img.src = "images/03.jpg";
+                alert("已经是第一张了");
+            }
+
+        }
+        pg4.onclick = function () {
+            if (num < 6) {
+                num++;
+                img.src = 'images/0' + num + '.jpg';
+                pg1.innerHTML = num - 2 + "/4";
+                pg2.innerHTML = aArr[num - 3];
+
+            } else {
+                img.src = "images/06.jpg";
+                alert("已经是最后一张了");
+            }
+
+        }
+    }
+//循环播放
+    var btn2=getId("btn2");
+    btn2.onclick=function () {
+        pg.innerHTML = "图片可从最后一张跳转到第一张进行播放";
+
+        pg3.onclick = function () {
+            if (num > 3) {
+                num--;
+                img.src = 'images/0' + num + '.jpg';
+                pg1.innerHTML = num - 2 + "/4";
+                pg2.innerHTML = aArr[num - 3];
+
+            } else {
+                num=6;
+                img.src = "images/06.jpg";
+                pg1.innerHTML = num - 2 + "/4";
+                pg2.innerHTML = aArr[num - 3];
+
+            }
+        }
+        pg4.onclick = function () {
+            if (num < 6) {
+                num++;
+                img.src = 'images/0' + num + '.jpg';
+                pg1.innerHTML = num - 2 + "/4";
+                pg2.innerHTML = aArr[num - 3];
+
+            } else {
+                img.src = "images/03.jpg";
+                num = 3;
+                pg1.innerHTML = num - 2 + "/4";
+                pg2.innerHTML = aArr[num - 3];
+
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
