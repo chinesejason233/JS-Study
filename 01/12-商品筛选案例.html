@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 14px;
+            font-family: "Lantinghei SC Extralight",Arial;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            vertical-align: top;
+        }
+        #wrap {
+            width: 760px;
+            margin: 0px auto;
+            padding: 145px 120px 95px;
+            background: url(images/bg.jpg) repeat-y 0 0 ;
+        }
+        #section {
+            width: 760px;
+            height: 260px;
+            -moz-box-shadow: 0px 0px 4px rgba(0,0,0,.2);
+            box-shadow: 0px 0px 4px rgba(0,0,0,.2);
+        }
+        #choose {
+            width: 760px;
+            height: 50px;
+            margin: 0 auto;
+            background: url(images/nav_bg.png) no-repeat 0 0;
+            line-height: 50px;
+            text-indent: 21px;
+            overflow: hidden;
+        }
+        #type {
+            width: 100%;
+            height: 210px;
+            background: url(images/type_bg.png) no-repeat 0 0;
+            padding: 17px 0 16px 28px;
+        }
+        #type li {
+            height: 44px;
+            color: #8a8a8a;
+            line-height: 44px;
+        }
+        #type a {
+            margin: 0 12px 0 11px;
+            color: #000;
+        }
+        #choose mark {
+            position: relative;
+            display: inline-block;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #28a5c4;
+            color: #28a5c4;
+            margin: 12px 5px 0;
+            background: none;
+            padding: 0 30px 0 6px;
+            text-indent: 0;
+        }
+        #choose span {
+            float: left;
+        }
+        #choose div {
+            float: left;
+        }
+        #choose mark a {
+            position: absolute;
+            top: 3px;
+            right: 2px;
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: #28a5c4;
+            color: #fff;
+            line-height: 18px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .shop-list {
+            height: 3000px;
+
+            background: url(images/type_bg.png) repeat-y 0 0;
+        }
+        .filter-nav {
+            height: 30px;
+            margin-top: 30px;
+            background: url(images/nav_bg.png) no-repeat 0 0;
+
+        }
+        .filter-nav span {
+            font-size: 14px;
+            color: #999;
+            line-height: 30px;
+            padding: 0px 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .filter-nav .nav-color {
+            color: #5683EA;
+        }
+        .shop-list pre {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <section id="section">
+        <nav id="choose">
+            <span>你的选择:</span>
+            <div>
+                <!-- <mark>魅族<a href="javascript:;">x</a></mark>
+                <mark>魅族<a href="javascript:;">x</a></mark> -->
+            </div>
+        </nav>
+        <ul id="type">
+            <!-- <li>
+                <span>品牌：</span>
+                <a href="javascript:;">苹果</a>
+                <a href="javascript:;">小米</a>
+                <a href="javascript:;">锤子</a>
+                <a href="javascript:;">魅族</a>
+                <a href="javascript:;">华为</a>
+                <a href="javascript:;">三星</a>
+                <a href="javascript:;">OPPO</a>
+                <a href="javascript:;">vivo</a>
+                <a href="javascript:;">乐视</a>
+                <a href="javascript:;">360</a>
+                <a href="javascript:;">中兴</a>
+                <a href="javascript:;">索尼</a>
+            </li>
+            <li>
+                <span>尺寸：</span>
+                <a href="javascript:;">3.0英寸以下</a>
+                <a href="javascript:;">3.0-3.9英寸</a>
+                <a href="javascript:;">4.0-4.5英寸</a>
+                <a href="javascript:;">4.6-4.9英寸</a>
+                <a href="javascript:;">5.0-5.5英寸</a>
+                <a href="javascript:;">6.0英寸以上</a>
+            </li>
+            <li>
+                <span>系统：</span>
+                <a href="javascript:;">安卓 ( Android )</a>
+                <a href="javascript:;">苹果 ( IOS )</a>
+                <a href="javascript:;">微软 ( WindowsPhone )</a>
+                <a href="javascript:;">无</a>
+                <a href="javascript:;">其他</a>
+            </li>
+            <li>
+                <span>网络：</span>
+                <a href="javascript:;">联通3G</a>
+                <a href="javascript:;">双卡单4G</a>
+                <a href="javascript:;">双卡双4G</a>
+                <a href="javascript:;">联通4G</a>
+                <a href="javascript:;">电信4G</a>
+                <a href="javascript:;">移动4G</a>
+            </li> -->
+        </ul>
+    </section>
+    <nav class="filter-nav">
+        <span class="nav-color">综合排序</span>
+        <span>销量排序</span>
+        <span>价格低到高</span>
+        <span>价格高到低</span>
+    </nav>
+    <section class="shop-list"></section>
+</div>
+<script  src="shoplist.js"></script>
+<script>
+    var crumbData = [
+        {
+            "title": "品牌",
+            "data": [ "苹果","小米","锤子","魅族","华为","三星","OPPO","vivo","乐视"]
+        },
+        {
+            "title": "尺寸",
+            "data": ["4.0-4.5英寸","4.6-4.9英寸","5.0-5.5英寸","6.0英寸以上"]
+        },
+        {
+            "title": "系统",
+            "data": ["android","ios","window phone","无","其他"]
+        },
+        {
+            "title": "网络",
+            "data": ["联通3G","双卡单4G","双卡双4G","联通4G"]
+        }
+    ]
+//    1.根据数据生成HTML结构
+    var len=crumbData.length;
+    var type=document.querySelector('#type');
+    var newLi=null;
+    var newSpan=null;
+    var newA=null;
+    var aLi=type.children;
+    var itemA=null;
+//    var prev=null;
+    var chooseObj={};
+    var filterObj={};
+    var arr=['name','size','system','www'];
+    var list=document.querySelector('.shop-list');
+    for (var i=0;i<len;i++){
+        //生成相关元素
+        newLi=document.createElement('li');
+        newSpan=document.createElement('span');
+        newSpan.innerText=crumbData[i].title;
+        //先将span插入li当中
+        newLi.appendChild(newSpan);
+        //拿到每个对象中的数组，循环数组，生成a标签
+        for (var j=0;j<crumbData[i].data.length;j++){
+            newA=document.createElement('a');
+            newA.href='javascript:;';
+            newA.innerText=crumbData[i].data[j];
+            newLi.appendChild(newA);
+        }
+        //最后整体插入ul中
+        type.appendChild(newLi);
+
+    }
+//    2.给每一个a标签绑定事件
+    for (var i=0;i<aLi.length;i++){
+        itemA=aLi[i].querySelectorAll('a');
+        aLi[i].prevNode=null;//每个li独有的自定义属性
+        aLi[i].index=i;//设置每个li的索引值
+        for (var j=0;j<itemA.length;j++){
+            itemA[j].onclick=function () {
+                //利用选项卡思想清空上一次a标签的样式
+                var parent=this.parentNode;
+                //生成选择的结构，还要对选择的结构进行排序
+                //利用对象{
+                //  key:
+                // }
+                //key值是唯一的
+                chooseObj[parent.index]=this.innerText;
+//                console.log(chooseObj);
+                //生成筛选的结构
+                createChooseHtml();
+                filterObj[arr[parent.index]]=this.innerText;
+                //删除筛选的结构
+                removeChooseHtml();
+                //存一下当前筛选的值
+
+                console.log(filterObj);
+                filterHandle();
+                if (parent.prevNode){
+                    parent.prevNode.style.color='';//去掉之前点击的a标签的color
+                }
+                this.style.color='red';
+                parent.prevNode=this;//记录当前a标签(把当前a标签赋值给当前li的prevNode属性)
+            }
+        }
+    }
+//    3.根据数据生成选择结构
+    var chooseElement=document.querySelector('#choose div');
+    function createChooseHtml() {
+        var html='';
+        for (var i=0;i<aLi.length;i++){
+            if (chooseObj[i]){
+                html+='<mark>'+chooseObj[i]+'<a href="javascript:;" data-index="'+i+'">x</a></mark>';
+            }
+        }
+        chooseElement.innerHTML=html;
+    }
+    function removeChooseHtml() {
+        var chooseA=chooseElement.querySelectorAll('a');
+        for (var i=0;i<chooseA.length;i++){
+            chooseA[i].onclick=function () {
+                //删除选择结构样式
+                this.parentNode.parentNode.removeChild(this.parentNode);
+                //删除对象当中的数据
+                delete chooseObj[this.dataset.index];
+                 delete filterObj[arr[this.dataset.index]];
+                 console.log(filterObj);
+//                console.log(chooseObj)
+                //删除对应li中的a标签样式
+                aLi[this.dataset.index].prevNode.style.color='';
+                filterHandle();
+
+            }
+        }
+
+    }
+
+    function filterHandle() {
+        var newArr=shopsList;
+        for (var attr in filterObj){
+                newArr=newArr.filter(function (obj) {
+                    return obj[attr]===filterObj[attr];
+                })
+        }
+//        console.log(newArr);
+        list.innerHTML='<pre>'+JSON.stringify(newArr,null,3)+'</pre>';
+    }
+    
+</script>
+</body>
+</html>
